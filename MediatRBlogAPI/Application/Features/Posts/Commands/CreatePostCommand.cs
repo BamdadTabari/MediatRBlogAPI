@@ -12,7 +12,8 @@ public class CreatePostCommand : IRequest<ResponseDto<string>>
     public string BlogText { get; set; }
     public bool ShowBlog { get; set; }
     public string KeyWords { get; set; }
+	public string MetaDescription { get; set; }
+	public int EstimatedReadTime { get; set; }
 
-
-    public int BlogCategoryId { get; set; }
+	public int BlogCategoryId { get; set; }
 }

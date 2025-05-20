@@ -29,6 +29,8 @@ public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, Respo
             ShortDescription = request.ShortDescription,
             KeyWords = request.KeyWords,
             ShowBlog = request.ShowBlog,
+            MetaDescription = request.MetaDescription,
+            EstimatedReadTime = request.EstimatedReadTime,
         };
 		if (request.Image != null)
 		{
