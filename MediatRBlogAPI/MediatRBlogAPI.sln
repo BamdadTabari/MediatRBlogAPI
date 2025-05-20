@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35507.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRBlogAPI", "MediatRBlogAPI.csproj", "{3CCEA635-0DB2-45ED-9C9E-821B267A1890}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "..\DataLayer\DataLayer.csproj", "{5BA4592E-7408-43BB-A26F-47AFD0A4D4C6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CCEA635-0DB2-45ED-9C9E-821B267A1890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CCEA635-0DB2-45ED-9C9E-821B267A1890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CCEA635-0DB2-45ED-9C9E-821B267A1890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CCEA635-0DB2-45ED-9C9E-821B267A1890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BA4592E-7408-43BB-A26F-47AFD0A4D4C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BA4592E-7408-43BB-A26F-47AFD0A4D4C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BA4592E-7408-43BB-A26F-47AFD0A4D4C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BA4592E-7408-43BB-A26F-47AFD0A4D4C6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {718BD98A-DD54-4A4F-9A92-3B24636A1011}
+	EndGlobalSection
+EndGlobal
