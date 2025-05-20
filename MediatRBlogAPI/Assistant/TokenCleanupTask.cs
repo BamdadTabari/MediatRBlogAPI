@@ -1,6 +1,6 @@
 ﻿using DataLayer;
 
-namespace DimoLand;
+namespace MediatRBlogAPI;
 
 public class TokenCleanupTask
 {

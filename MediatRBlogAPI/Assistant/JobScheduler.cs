@@ -1,7 +1,7 @@
 ﻿using DataLayer;
 using Hangfire;
 
-namespace DimoLand;
+namespace MediatRBlogAPI;
 public class JobScheduler
 {
     private readonly IRecurringJobManager _recurringJobManager;

@@ -1,7 +1,7 @@
 ﻿
 using DataLayer;
 
-namespace DimoLand;
+namespace MediatRBlogAPI;
 public class TokenBlacklistMiddleware
 {
     private readonly RequestDelegate _next;

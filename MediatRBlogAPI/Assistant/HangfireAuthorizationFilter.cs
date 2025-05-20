@@ -1,6 +1,6 @@
 ﻿using Hangfire.Dashboard;
 
-namespace DimoLand;
+namespace MediatRBlogAPI;
 public class HangfireAuthorizationFilter : IDashboardAuthorizationFilter
 {
     public bool Authorize(DashboardContext context)

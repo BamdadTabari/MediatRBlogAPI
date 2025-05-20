@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Reflection;
 
-namespace DimoLand;
+namespace MediatRBlogAPI;
 
 public static class ExtensionMethods
 {

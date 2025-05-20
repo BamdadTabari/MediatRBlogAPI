@@ -1,4 +1,16 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using DataLayer;
+using Hangfire;
+using MediatRBlogAPI;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Security.Claims;
+using System.Text;
+using System.Text.Json;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
