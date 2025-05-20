@@ -1,8 +1,9 @@
 ﻿using MediatR;
+using MediatRBlogAPI.Application.Base;
 
 namespace MediatRBlogAPI.Application.Features.Posts.Commands;
 
-public class CreatePostCommand : IRequest<long>
+public class CreatePostCommand : IRequest<ResponseDto<string>>
 {
     public string Name { get; set; }
     public string ShortDescription { get; set; }
