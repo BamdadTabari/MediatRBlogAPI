@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using MediatRBlogAPI.Application.Base;
 using MediatRBlogAPI.Application.Features.Posts.Commands;
+using MediatRBlogAPI.Application.Features.Posts.Query;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,9 +37,24 @@ public class BlogController(IMediator _mediator) : ControllerBase
 
 	[HttpGet]
 	[Route("get")]
-	public async Task<IActionResult> Get([FromForm] string slug)
+	public async Task<IActionResult> GetBySlug([FromForm] GetPostBySlugQuery query, CancellationToken cancellationToken)
 	{
-		// برای بعد
-		return Ok();
+		if (!ModelState.IsValid)
+		{
+			var error = string.Join(" | ", ModelState.Values
+				.SelectMany(v => v.Errors)
+				.Select(e => e.ErrorMessage));
+			return BadRequest(new ResponseDto<string>()
+			{
+				data = null,
+				is_success = false,
+				message = error,
+				response_code = 400
+			});
+		}
+
+		var response = await _mediator.Send(query, cancellationToken);
+		
+		return Ok(response);
 	}
 }
