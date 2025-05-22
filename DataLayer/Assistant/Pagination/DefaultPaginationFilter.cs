@@ -6,8 +6,5 @@ public class DefaultPaginationFilter : PaginationFilter
 
     public string? Keyword { get; set; }
     public bool? BoolFilter { get; set; }
-    public bool? BoolFilter2 { get; set; }
-    public double? Min { get; set; }
-    public double? Max { get; set; }
     public SortByEnum SortBy { get; set; } = SortByEnum.CreationDate;
 }

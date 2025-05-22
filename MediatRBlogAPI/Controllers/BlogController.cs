@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using DataLayer;
+using MediatR;
 using MediatRBlogAPI.Application.Base;
 using MediatRBlogAPI.Application.Features.Posts.Commands;
 using MediatRBlogAPI.Application.Features.Posts.Query;
@@ -11,7 +12,16 @@ public class BlogController(IMediator _mediator) : ControllerBase
 {
 	private readonly IMediator _mediator = _mediator;
 
-	[HttpPost]
+    [HttpGet]
+    [Route("list")]
+    public async Task<IActionResult> Index(GetPaginatedPostQuery query, CancellationToken cancellationToken)
+    {
+		var result = await _mediator.Send(query, cancellationToken);
+        return Ok(result);
+    }
+
+
+    [HttpPost]
 	[Route("create")]
 	public async Task<IActionResult> CreatePost([FromForm] CreatePostCommand command, CancellationToken cancellationToken)
 	{
