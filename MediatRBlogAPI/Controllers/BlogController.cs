@@ -89,4 +89,27 @@ public class BlogController(IMediator _mediator) : ControllerBase
 		
 		return Ok(response);
 	}
+
+    [HttpPost]
+    [Route("delete")]
+    public async Task<IActionResult> DeletePost([FromForm] DeletePostCommand command, CancellationToken cancellationToken)
+    {
+        if (!ModelState.IsValid)
+        {
+            var error = string.Join(" | ", ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage));
+            return BadRequest(new ResponseDto<string>()
+            {
+                data = null,
+                is_success = false,
+                message = error,
+                response_code = 400
+            });
+        }
+
+        var response = await _mediator.Send(command, cancellationToken);
+
+        return Ok(response);
+    }
 }
