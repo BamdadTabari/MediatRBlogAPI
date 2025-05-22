@@ -2,7 +2,6 @@
 using MediatRBlogAPI.Application.Base;
 using MediatRBlogAPI.Application.Features.Posts.Commands;
 using MediatRBlogAPI.Application.Features.Posts.Query;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MediatRBlogAPI.Controllers;
@@ -35,7 +34,30 @@ public class BlogController(IMediator _mediator) : ControllerBase
 		return Ok(response);
 	}
 
-	[HttpGet]
+    [HttpPost]
+    [Route("edit")]
+    public async Task<IActionResult> EditPost([FromForm] EditPostCommand command, CancellationToken cancellationToken)
+    {
+        if (!ModelState.IsValid)
+        {
+            var error = string.Join(" | ", ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage));
+            return BadRequest(new ResponseDto<string>()
+            {
+                data = null,
+                is_success = false,
+                message = error,
+                response_code = 400
+            });
+        }
+
+        var response = await _mediator.Send(command, cancellationToken);
+
+        return Ok(response);
+    }
+
+    [HttpGet]
 	[Route("get")]
 	public async Task<IActionResult> GetBySlug([FromForm] GetPostBySlugQuery query, CancellationToken cancellationToken)
 	{

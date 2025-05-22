@@ -6,18 +6,31 @@ using Microsoft.Extensions.Hosting;
 
 namespace MediatRBlogAPI.Application.Features.Posts.Handlers;
 
-public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, ResponseDto<string>>
+public class CreatePostCommandHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreatePostCommand, ResponseDto<string>>
 {
-    private readonly IUnitOfWork _unitOfWork;
-
-    public CreatePostCommandHandler(IUnitOfWork unitOfWork)
-    {
-        _unitOfWork = unitOfWork;
-    }
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<ResponseDto<string>> Handle(CreatePostCommand request, CancellationToken cancellationToken)
     {
-       
+        if(await _unitOfWork.BlogRepository.ExistsAsync(x=>x.Name == request.Name))
+            return new ResponseDto<string>()
+            {
+                data = null,
+                message = "مقاله با این نام وجود دارد" ,
+                is_success = false,
+                response_code = 400
+            };
+
+        var slug = request.Slug ?? SlugHelper.GenerateSlug(request.Name);
+        if (await _unitOfWork.BlogRepository.ExistsAsync(x => x.Slug == slug))
+            return new ResponseDto<string>()
+            {
+                data = slug,
+                message = "مقاله با این نامک وجود دارد",
+                is_success = false,
+                response_code = 400
+            };
+
         var post = new Blog
         {
             Name = request.Name,
@@ -31,6 +44,7 @@ public class CreatePostCommandHandler : IRequestHandler<CreatePostCommand, Respo
             ShowBlog = request.ShowBlog,
             MetaDescription = request.MetaDescription,
             EstimatedReadTime = request.EstimatedReadTime,
+            Slug = slug,
         };
 		if (request.Image != null)
 		{

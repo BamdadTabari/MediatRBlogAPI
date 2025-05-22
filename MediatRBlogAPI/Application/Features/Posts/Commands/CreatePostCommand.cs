@@ -36,4 +36,6 @@ public class CreatePostCommand : IRequest<ResponseDto<string>>
 	[Display(Name = "دسته بندی مقاله")]
 	[Required(ErrorMessage = "لطفا مقدار {0} را وارد کنید")]
 	public int BlogCategoryId { get; set; }
+
+    public string? Slug { get; set; }
 }
