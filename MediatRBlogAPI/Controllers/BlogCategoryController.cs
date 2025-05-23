@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using MediatRBlogAPI.Application.Base;
+using MediatRBlogAPI.Application.Features.Categories.Commands;
 using MediatRBlogAPI.Application.Features.Categories.Query;
 using MediatRBlogAPI.Application.Features.Posts.Commands;
 using MediatRBlogAPI.Application.Features.Posts.Query;
@@ -24,7 +25,7 @@ public class BlogCategoryController(IMediator _mediator) : ControllerBase
 
     [HttpPost]
     [Route("create")]
-    public async Task<IActionResult> Create([FromForm] CreatePostCommand command, CancellationToken cancellationToken)
+    public async Task<IActionResult> Create([FromForm] CreateCategoryCommand command, CancellationToken cancellationToken)
     {
         if (!ModelState.IsValid)
         {

@@ -5,7 +5,7 @@ using MediatRBlogAPI.Application.Features.Categories.Query;
 
 namespace MediatRBlogAPI.Application.Features.Categories.Handlers;
 
-public class GetPaginatedCategoryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetPaginatedCategoryQuery, ResponseDto<PaginatedList<BlogCategory>>>
+public class GetPaginatedCategoryQueryHandler(IUnitOfWork unitOfWork) : IRequestHandler<GetPaginatedCategoryQuery, ResponseDto<PaginatedList<BlogCategory>>>
 {
     private readonly IUnitOfWork _unitOfWork = unitOfWork;
     public async Task<ResponseDto<PaginatedList<BlogCategory>>> Handle(GetPaginatedCategoryQuery request, CancellationToken cancellationToken)
