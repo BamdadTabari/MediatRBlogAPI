@@ -1,6 +1,8 @@
-﻿namespace MediatRBlogAPI.Application.Features.Posts.Response;
+﻿using MediatRBlogAPI.Application.Base;
 
-public class PostResponse
+namespace MediatRBlogAPI.Application.Features.Posts.Response;
+
+public class PostResponse : BaseResponse
 {
 	public string Name { get; set; }
 	public string ShortDescription { get; set; }

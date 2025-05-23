@@ -19,6 +19,10 @@ public static class PostMapper
 			ShowBlog = src.ShowBlog,
 			EstimatedReadTime = src.EstimatedReadTime,
 			MetaDescription = src.MetaDescription,
+			UpdatedAt = src.UpdatedAt,
+			CreatedAt = src.CreatedAt,
+			Slug = src.Slug,
+			Id = src.Id
 		};
 	}
 
@@ -36,6 +40,10 @@ public static class PostMapper
 			ShowBlog = x.ShowBlog,
 			EstimatedReadTime = x.EstimatedReadTime,
 			MetaDescription = x.MetaDescription,
-		}).ToList();
+            UpdatedAt = x.UpdatedAt,
+            CreatedAt = x.CreatedAt,
+            Slug = x.Slug,
+            Id = x.Id
+        }).ToList();
 	}
 }

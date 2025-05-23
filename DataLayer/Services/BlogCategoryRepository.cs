@@ -3,7 +3,7 @@ namespace DataLayer;
 public interface IBlogCategoryRepository : IRepository<BlogCategory>
 {
     Task<BlogCategory?> Get(string slug);
-    Task<BlogCategory?> Get(int id);
+    Task<BlogCategory?> Get(long id);
     PaginatedList<BlogCategory> GetPaginated(DefaultPaginationFilter filter);
     Task<List<BlogCategory>> GetAll();
 }
@@ -29,7 +29,7 @@ public class BlogCategoryRepository : Repository<BlogCategory>, IBlogCategoryRep
         }
     }
 
-    public async Task<BlogCategory?> Get(int id)
+    public async Task<BlogCategory?> Get(long id)
     {
         try
         {

@@ -48,7 +48,7 @@ public class BlogCategoryController(IMediator _mediator) : ControllerBase
 
     [HttpPost]
     [Route("edit")]
-    public async Task<IActionResult> Edit([FromForm] EditPostCommand command, CancellationToken cancellationToken)
+    public async Task<IActionResult> Edit([FromForm] EditCategoryCommand command, CancellationToken cancellationToken)
     {
         if (!ModelState.IsValid)
         {
