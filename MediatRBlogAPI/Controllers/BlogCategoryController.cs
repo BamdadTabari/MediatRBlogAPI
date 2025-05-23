@@ -22,6 +22,13 @@ public class BlogCategoryController(IMediator _mediator) : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet]
+    [Route("all")]
+    public async Task<IActionResult> GetAll(GetAllCategoryQuery query, CancellationToken cancellationToken)
+    {
+        var result = await _mediator.Send(query, cancellationToken);
+        return Ok(result);
+    }
 
     [HttpPost]
     [Route("create")]
