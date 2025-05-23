@@ -23,7 +23,7 @@ public class BlogController(IMediator _mediator) : ControllerBase
 
     [HttpPost]
 	[Route("create")]
-	public async Task<IActionResult> CreatePost([FromForm] CreatePostCommand command, CancellationToken cancellationToken)
+	public async Task<IActionResult> Create([FromForm] CreatePostCommand command, CancellationToken cancellationToken)
 	{
 		if (!ModelState.IsValid)
 		{
@@ -46,7 +46,7 @@ public class BlogController(IMediator _mediator) : ControllerBase
 
     [HttpPost]
     [Route("edit")]
-    public async Task<IActionResult> EditPost([FromForm] EditPostCommand command, CancellationToken cancellationToken)
+    public async Task<IActionResult> Edit([FromForm] EditPostCommand command, CancellationToken cancellationToken)
     {
         if (!ModelState.IsValid)
         {
@@ -92,7 +92,7 @@ public class BlogController(IMediator _mediator) : ControllerBase
 
     [HttpPost]
     [Route("delete")]
-    public async Task<IActionResult> DeletePost([FromForm] DeletePostCommand command, CancellationToken cancellationToken)
+    public async Task<IActionResult> Delete([FromForm] DeletePostCommand command, CancellationToken cancellationToken)
     {
         if (!ModelState.IsValid)
         {

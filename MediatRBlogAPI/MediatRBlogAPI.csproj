@@ -21,4 +21,9 @@
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\Features\Categories\Commands\" />
+    <Folder Include="Application\Features\Categories\Response\" />
+  </ItemGroup>
+
 </Project>
